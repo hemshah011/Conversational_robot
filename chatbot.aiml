@@ -1,0 +1,53 @@
+<aiml version="1.0.1" encoding="UTF-8">
+<!--basic_chat.aiml-->
+    <category>
+        <pattern>HEY JARVIS</pattern>
+        <template>
+          Hi there, how are you doing today.
+        </template>
+    </category>
+
+    <category>
+        <pattern>I AM GREAT</pattern>
+        <template>
+            Glad to hear that
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHAT ARE YOU</pattern>
+        <template>
+            I'm a bot, your assistant
+        </template>
+    </category>
+
+    <category>
+      <pattern>I BOUGHT A ROLLER SKATE</pattern>
+      <template>
+        Wow that's some news , is it inline?
+      </template>
+    </category>
+
+    <category>
+      <pattern>YES IT IS </pattern>
+      <template>
+        That's pretty cool
+      </template>
+    </category>
+
+    <category>
+    <pattern>ONE DAY I *</pattern>
+    <template>
+        <random>
+            <li>Go on.</li>
+            <li>How old are you?</li>
+            <li>Be more specific.</li>
+            <li>I did not know that.</li>
+            <li>I don't know what that means.</li>
+            <li>Try to tell me that another way.</li>
+            <li>Are you talking about an animal, vegetable or mineral?</li>
+            <li>What is it?</li>
+        </random>
+    </template>
+    </category>
+</aiml>
