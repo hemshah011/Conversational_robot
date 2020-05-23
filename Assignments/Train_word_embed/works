@@ -1,0 +1,5 @@
+#using glove model have to depict analogy
+#not use genism
+#no need to gender bias
+#cosine for similarity
+#word2vec concept not clear on dataset import pandas ??
