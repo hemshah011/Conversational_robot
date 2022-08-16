@@ -30,9 +30,6 @@ This model is implemented to convert the audio messages of the user into text.
 <p align="center">
 <img src="https://user-images.githubusercontent.com/56124350/85904215-c2386d00-b825-11ea-99cf-b635187e99cc.png"     width="700" height="200">
 </p>
-Please look at the file for the proper implementation :
-
-[ctc_model](https://github.com/isro01/Conv_bot/blob/master/ctc_model.py)
 
 Dataset opted for training: [Librespeech](http://www.openslr.org/12/)
 ### ENCODER - DECODER MODEL
@@ -70,7 +67,7 @@ This graph shows the optimal number of topics we need to set for news articles d
 
 ### Text to Audio
 
-[gTTs](https://pypi.org/project/gTTS/), a python library was used to make a function to output audio from the generated responses.
+[gTTS](https://pypi.org/project/gTTS/), a python library was used to make a function to output audio from the generated responses.
 ## Usage
 
 Install the required dependencies :
