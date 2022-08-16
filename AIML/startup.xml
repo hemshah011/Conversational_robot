@@ -1,0 +1,19 @@
+<aiml version="1.0.1" encoding="UTF-8">
+
+    <category>
+
+
+        <pattern>LOAD AIML B</pattern>
+
+        <template>
+          <learn>AIML/google.aiml</learn>
+          <learn>AIML/basic.aiml</learn>
+          <learn>AIML/emotion.aiml</learn>
+          <learn>AIML/jokes.aiml</learn>
+          <learn>AIML/greetings.aiml</learn>
+          <learn>AIML/emotions.aiml</learn>
+        </template>
+
+    </category>
+    
+</aiml>

@@ -1,0 +1,113 @@
+<aiml version="1.0.1" encoding="UTF-8">
+
+<category>
+    <pattern>HELLO</pattern>
+    <template>HI USER!</template>
+</category>
+
+<category>
+    <pattern>CAN YOU SHOW ME PICTURES OF *</pattern>
+    <template>Sure.Here you go.<system>python AIML/googl.py <star /> 2</system></template>
+</category>
+
+<category>
+    <pattern>CAN YOU SEARCH FOR * ON GOOGLE</pattern>
+    <template>Sure.Here you go.<system>python AIML/googl.py <star /> 1</system></template>
+</category>
+
+<category>
+    <pattern>SEARCH FOR * ON GOOGLE</pattern>
+    <template>Sure.Here you go.<system>python AIML/googl.py <star /> 1</system></template>
+</category>
+
+<category>
+    <pattern>SEARCH FOR *</pattern>
+    <template>Sure.Here you go.<system>python AIML/googl.py <star /> 1</system></template>
+</category>
+
+<category>
+    <pattern>CAN YOU SEARCH FOR *</pattern>
+    <template>Sure.Here you go.<system>python AIML/googl.py <star /> 1</system></template>
+</category>
+
+<category>
+    <pattern>GOOGLE *</pattern>
+    <template>Sure.Here you go.<system>python AIML/googl.py <star /> 1</system></template>
+</category>
+
+<category>
+    <pattern>PICTURES OF *</pattern>
+    <template>Sure.Here you go.<system>python AIML/googl.py <star /> 2</system></template>
+</category>
+
+<category>
+    <pattern>SHOW ME PICTURES OF *</pattern>
+    <template>Sure.Here you go.<system>python AIML/googl.py <star /> 2</system></template>
+</category>
+
+<category>
+    <pattern>GOOGLE PICTURES OF *</pattern>
+    <template>Sure.Here you go.<system>python AIML/googl.py <star /> 2</system></template>
+</category>
+
+<category>
+    <pattern>GOOGLE PHOTOS OF *</pattern>
+    <template>Sure.Here you go.<system>python AIML/googl.py <star /> 2</system></template>
+</category>
+
+<category>
+    <pattern>IMAGES OF *</pattern>
+    <template>Sure.Here you go.<system>python AIML/googl.py <star /> 2</system></template>
+</category>
+
+<category>
+    <pattern>WHAT IS THE TEMPERATURE IN *</pattern>
+    <template>Let me see the temperature in <star />. The temperature is <system>python AIML/weather.py <star /> 1</system></template>
+</category>
+
+<category>
+    <pattern>WHAT IS THE HUMIDITY IN *</pattern>
+    <template>Let me see the humidity in <star />. The humidity is <system>python AIML/weather.py <star /> 2</system></template>
+</category>
+
+<category>
+    <pattern>GIVE ME THE TEMPERATURE IN *</pattern>
+    <template><srai>WHAT IS THE TEMPERATURE IN <star /></srai></template>
+</category>
+
+<category>
+    <pattern>GIVE ME THE HUMIDITY IN *</pattern>
+    <template><srai>WHAT IS THE HUMIDITY IN <star /></srai></template>
+</category>
+
+<category>
+    <pattern>WHATS THE TEMPERATURE IN *</pattern>
+    <template><srai>WHAT IS THE TEMPERATURE IN <star /></srai></template>
+</category>
+
+<category>
+    <pattern>WHATS THE HUMIDITY IN *</pattern>
+    <template><srai>WHAT IS THE HUMIDITY IN <star /></srai></template>
+</category>
+
+<category>
+    <pattern>WHAT IS THE WEATHER IN *</pattern>
+    <template>THe weather in <star /> is <system>python AIML/weather.py <star /> 3</system></template>
+</category>
+
+<category>
+    <pattern>GIVE ME THE WEATHER IN *</pattern>
+    <template><srai>WHAT IS THE WEATHER IN <star />.</srai></template>
+</category>
+
+<category>
+    <pattern>WHATS THE WEATHER IN *</pattern>
+    <template><srai>WHAT IS THE WEATHER IN <star /></srai></template>
+</category>
+
+<category>
+    <pattern>WHATS THE WEATHER AT *</pattern>
+    <template><srai>WHAT IS THE WEATHER IN <star /></srai></template>
+</category>
+
+</aiml>
