@@ -1,0 +1,7 @@
+numpy
+tensorflow
+nltk
+gensim
+spacy
+pprint
+pickle
