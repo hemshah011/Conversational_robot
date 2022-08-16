@@ -9,54 +9,68 @@ Robotics Club Summer Project 2020
 
 ## Team Members
 
-* **Group A** - [Varun Khatri](https://github.com/varunk122), [Prateek Jain](https://github.com/Prateekjain09), [Adit Khokhar](https://github.com/adit-khokar), [Atharva Umbarkar](https://github.com/AtharvaUmbarkar), [Ishir Roongta](https://github.com/isro01)
-  * Group Repo - [https://github.com/isro01/Conv_bot]</br></br>
-* **Group B** - [Shiven Tripathi](https://github.com/ShivenTripathi), [Prakhar Pradhan](https://github.com/prakhariitk), [Mohd Muzzammil](https://github.com/XaltaMalta), [Sidhartha Watsa](https://github.com/sidwat), [Azhar Tanweer](https://github.com/Azhar-999-coder)
-  * Group Repo - [https://github.com/conversational-robot]</br></br>
-* **Group C** - [Ambuja Budakoti](https://github.com/AmbujaBudakoti27), [Devansh Mishra](https://github.com/devansh20), [Hem Shah](https://github.com/hemshah011), [Kavya Agarwal](https://github.com/KavyaAgarwal2001), [Preeti Kumari](https://github.com/preeti1428)
+* **Group** - [Ambuja Budakoti](https://github.com/AmbujaBudakoti27), [Devansh Mishra](https://github.com/devansh20), [Hem Shah](https://github.com/hemshah011), [Kavya Agarwal](https://github.com/KavyaAgarwal2001), [Preeti Kumari](https://github.com/preeti1428)
   * Group Repo - [https://github.com/AmbujaBudakoti27/ConversationalRobot]</br></br>
-* **Group D** - [Abhay Dayal Mathur](https://github.com/Stellarator-X), [Amitesh Singh Sisodia](https://github.com/Amitesh163), [Anchal Gupta](https://github.com/anchalgupta05), [Arpit Verma](https://github.com/Av-hash), [Manit Ajmera](https://github.com/manitajmera), [Sanskar Mittal](https://github.com/sanskarm)
-  * Group Repo - [https://github.com/Amitesh163/ConvBot_group]
   
 ***
 
-## Aim
-
-The aim of this project was to make a **Talking bot**, one which can pay attention to the user's voice and generate meaningful and contextual responses according to their intent, much like human conversations.
-
-## Ideation
-
-This project was divided into overall three parts :
-
-* [Speech to Text conversion](https://github.com/Amitesh163/ConvBot_group/tree/master/SpeechRecognition) <sup>[1]</sup>
-* [Response Generation](https://github.com/Amitesh163/ConvBot_group/tree/master/Response%20Generation) <sup>[2]</sup>
-* [Text to speech conversion](https://github.com/Amitesh163/ConvBot_group/tree/master/TextToSpeech)
-
 ## Overall Pipeline of the Project
 
-![overall pipeline](images/speech.png)
+The main aim of this project was to make a conversation bot able to take in audio input and output a meaningful reply keeping in mind factors like context ant intent in the input given by user.
 
-### Speech Recognition
+The three main parts of this project were:
 
-We used *google-speech-to-text (gstt)* API for the conversion of speech to text transcripts with a WER(Word Error Rate) of *4.7%*.
+1. Speech to text
+2. Topic attention (to generate a response)
+3. Text to speech
 
-### Response Generation
+### CTC_MODEL
 
-We used a subset of the OpenSubtitles <sup>[4]</sup> dataset to train our response generation model, which was a combination of Context-based and Topic-based Attention Model.</br>
-This model has an encoder network which produces context vector for an input sentence followed by an attention mechanism which decides how much attention is to be paid to a particular word in a sentence and finally a decoder network which uses attention weights and context vectors to generate words of the output sentence i.e. response. We also added an [AIML pipeline](AIML) to our model for responding to some specific pattern of inputs which include greetings, emotions, jokes etc and also added Weather Forecasting and Googling capabilities.</br>
-Some of the output examples that we've produced with our model are:</br>
+This model is implemented to convert the audio messages of the user into text.
+<p align="center">
+<img src="https://user-images.githubusercontent.com/56124350/85904215-c2386d00-b825-11ea-99cf-b635187e99cc.png"     width="700" height="200">
+</p>
+Please look at the file for the proper implementation :
+
+[ctc_model](https://github.com/isro01/Conv_bot/blob/master/ctc_model.py)
+
+Dataset opted for training: [Librespeech](http://www.openslr.org/12/)
+### ENCODER - DECODER MODEL
+
+This model is implemtented to cover the response generation part of the conversational bot.
+We trained this model on the dataset [Opensubtitles](http://opus.nlpl.eu/OpenSubtitles-v2018.php)
 
 <p align = "center">
-<img src="images/responseexamples.jpeg">
+  <img src="https://user-images.githubusercontent.com/56124350/85904325-0c215300-b826-11ea-9312-e8ccd9cb2ce1.png" width="400" height="458">
+  <img src="https://user-images.githubusercontent.com/56124350/85904328-0e83ad00-b826-11ea-9f48-179de5c00319.png" width="400" >
 </p>
 
-### Text to speech conversion
+### LDA MODEL 
 
-We used the *google-text-to-speech (gtts)* API for the conversion of text transcripts of responses back to speech.</br>
-The API uses *playsound* to play a temporary mp3 file created from the model's textual response.
+This model is implemented to add topic awareness to ENCODER - DECODER Model for better response generation by focusing it's "attention" to only specific parts of the input rather than the whole sentence.
 
-***
+### Optimal Number of Topics
 
+This graph shows the optimal number of topics we need to set for news articles dataset.
+<p align = "center">
+  <img src="https://user-images.githubusercontent.com/56124350/85904664-f2ccd680-b826-11ea-8ba2-09607478d22e.png" width="500" height="200">
+</p>
+
+### Gensim LDA Model parameters
+
+* **corpus** —   Stream of document vectors or sparse matrix of shape (num_terms, num_documents) <
+* **id2word** – Mapping from word IDs to words. It is used to determine the vocabulary size, as well as for debugging and topic printing.
+* **num_topics** — The number of requested latent topics to be extracted from the training corpus.
+* **random_state** — Either a randomState object or a seed to generate one. Useful for reproducibility.
+* **update_every** — Number of documents to be iterated through for each update. Set to 0 for batch learning, > 1 for online iterative learning.
+* **chunksize** — Number of documents to be used in each training chunk.
+* **passes** — Number of passes through the corpus during training.
+* **alpha** — auto: Learns an asymmetric prior from the corpus
+* **per_word_topics** — If True, the model also computes a list of topics, sorted in descending order of most likely topics for each word, along with their phi values multiplied by the feature-length (i.e. word count)
+
+### Text to Audio
+
+[gTTs](https://pypi.org/project/gTTS/), a python library was used to make a function to output audio from the generated responses.
 ## Usage
 
 Install the required dependencies :
@@ -64,6 +78,7 @@ Install the required dependencies :
 ```bash
 $pip install -r requirements.txt
 $sudo apt-get install gstreamer-1.0
+$python3 -m spacy download en
 ```
 
 Training checkpoints, LDA model weights and tokens can be found [here](https://drive.google.com/drive/folders/18o-bFpJjy1S4UHUbdTjQnb2B_IK4bIM5?usp=sharing)
